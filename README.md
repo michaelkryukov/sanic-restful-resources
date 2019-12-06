@@ -1,5 +1,11 @@
 # sanic-restful-resources
 
+[![PyPI version](https://badge.fury.io/py/sanic-restful-resources.svg)](https://badge.fury.io/py/sanic-restful-resources)
+[![CodeFactor](https://www.codefactor.io/repository/github/michaelkrukov/sanic-restful-resources/badge)](https://www.codefactor.io/repository/github/michaelkrukov/sanic-restful-resources)
+[![codebeat badge](https://codebeat.co/badges/3e8d5fda-c43d-4700-be78-11f5a2ad6dfa)](https://codebeat.co/projects/github-com-michaelkrukov-sanic-restful-resources-master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/315b7536ee7e4a59af03230b6738bde9)](https://www.codacy.com/manual/michaelkrukov/sanic-restful-resources?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelkrukov/sanic-restful-resources&amp;utm_campaign=Badge_Grade)
+[![Coverage Status](https://coveralls.io/repos/github/michaelkrukov/sanic-restful-resources/badge.svg?branch=master)](https://coveralls.io/github/michaelkrukov/sanic-restful-resources?branch=master)
+
 > Simple library for creating RESTful APIs with sanic.
 
 ## Features
@@ -88,3 +94,7 @@ class Users:
 
 - `collect_args(request)` - method for getting data from all possible
   sources of data in the request.
+
+## Licence
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources?ref=badge_large)
