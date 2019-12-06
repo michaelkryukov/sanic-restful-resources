@@ -77,6 +77,9 @@ def test_happy_path():
     assert res.status == 204
     assert res.body == b''
 
+    req, res = app.test_client.delete('/api/users/Yan')
+    assert res.status == 404
+
     req, res = app.test_client.get('/api/users')
     assert res.json
     assert len(res.json) == 2
