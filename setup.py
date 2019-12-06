@@ -26,7 +26,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/michaelkrukov/sanic-restful-resources',
-    packages=['sanic_restful_resources'],
+    packages=setuptools.find_packages(),
     install_requires=[
         'sanic>=19.6.3',
         'schematics>=2.1.0',

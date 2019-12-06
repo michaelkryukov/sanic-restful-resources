@@ -1,8 +1,5 @@
 import pytest
-from sanic import Sanic
-from schematics.models import Model
-from schematics.types import StringType
-from sanic_restful_resources import Api, resource, validate, error
+from sanic_restful_resources import Api, resource
 
 
 @resource('/users')

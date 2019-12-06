@@ -1,11 +1,5 @@
-import json
-import pytest
 import sanic
-from jwt.exceptions import InvalidTokenError
-from sanic_jwt_extended.exceptions import InvalidHeaderError
-from sanic_restful_resources import (
-    serializer_middleware, exceptions_middleware, error, collect_args
-)
+from sanic_restful_resources import collect_args
 
 
 ARGS_KEY = (False, False, 'utf-8', 'replace')
@@ -36,7 +30,7 @@ def test_collect_args_with_list():
 
     data = collect_args(request)
 
-    assert data == {'key': ['val1', 'val2'],}
+    assert data == {'key': ['val1', 'val2']}
 
 
 def test_collect_args_safety_net():
