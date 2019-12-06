@@ -1,0 +1,10 @@
+sanic>=19.6.3
+schematics>=2.1.0
+PyJWT>=1.7.1
+sanic-jwt-extended>=1.0.dev5
+
+flake8
+flake8-quotes
+pytest
+pytest-sanic
+coverage
