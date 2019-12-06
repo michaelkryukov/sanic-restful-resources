@@ -78,9 +78,10 @@ class Users:
   ```
 
 - `validate(**models)` - decorator for methods, that will validate
-  incoming data with provided models. Successfully validated and
-  parsed models will be passed as keyword arguments to the handler
-  method. If any model fails to validate - handler will not be called.
+  incoming data with provided models from Schematics library. Successfully
+  validated and parsed models will be passed as keyword arguments to
+  the handler method. If any model fails to validate - handler will
+  not be called.
 
 - `error(description=None, details=None, status=400, **kwargs` - method
   for returning errors from handlers.
