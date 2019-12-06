@@ -6,7 +6,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/315b7536ee7e4a59af03230b6738bde9)](https://www.codacy.com/manual/michaelkrukov/sanic-restful-resources?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelkrukov/sanic-restful-resources&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/michaelkrukov/sanic-restful-resources/badge.svg?branch=master)](https://coveralls.io/github/michaelkrukov/sanic-restful-resources?branch=master)
 
-> Simple library for creating RESTful APIs with sanic.
+> Simple library for creating RESTful APIs with sanic
 
 ## Features
 
