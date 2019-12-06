@@ -1,4 +1,6 @@
 # sanic-restful-resources
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources?ref=badge_shield)
+
 
 > Simple library for creating RESTful APIs with sanic.
 
@@ -88,3 +90,7 @@ class Users:
 
 - `collect_args(request)` - method for getting data from all possible
   sources of data in the request.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources?ref=badge_large)
