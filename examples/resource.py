@@ -1,7 +1,7 @@
 from sanic import Sanic
 from sanic_restful_resources import resource, Api
 
-app = Sanic(name='repeater')
+app = Sanic(name='example')
 api = Api(url_prefix='/api')
 
 

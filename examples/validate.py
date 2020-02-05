@@ -3,7 +3,7 @@ from schematics import Model
 from schematics.types import StringType
 from sanic_restful_resources import resource, Api, validate
 
-app = Sanic(name='repeater')
+app = Sanic(name='example')
 api = Api(url_prefix='/api')
 
 
