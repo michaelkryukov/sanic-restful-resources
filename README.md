@@ -43,6 +43,8 @@ class Users:
         return '', 204
 ```
 
+More examples in the [appropriate folder](examples).
+
 ## Guide
 
 - `resource(uri='')` - return decorator for classes that will be

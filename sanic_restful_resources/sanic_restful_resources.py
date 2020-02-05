@@ -215,6 +215,4 @@ def collect_args(request) -> dict:
         for k, v in request.form.items():
             _save_value(args, k, v)
 
-    print(args)
-
     return args
