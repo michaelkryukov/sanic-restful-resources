@@ -9,7 +9,7 @@ import sys
 import setuptools
 
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 
 with open('README.md', 'r') as fh:
@@ -28,7 +28,7 @@ setuptools.setup(
     url='https://github.com/michaelkrukov/sanic-restful-resources',
     packages=setuptools.find_packages(exclude=('examples',)),
     install_requires=[
-        'sanic>=19.6.3',
+        'sanic>=19.12.2',
         'schematics>=2.1.0',
         'PyJWT>=1.7.1',
         'sanic-jwt-extended==1.0.dev5',
