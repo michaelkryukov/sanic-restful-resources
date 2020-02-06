@@ -38,7 +38,7 @@ class User:
 
 
 def make_app(store):
-    app = Sanic()
+    app = Sanic(name='test')
     app.config.store = store
 
     api = Api(url_prefix='/api')

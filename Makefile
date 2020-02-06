@@ -5,5 +5,5 @@ test:
 	python3 -m coverage report -m --fail-under=100 --include=sanic_restful_resources/*
 
 lint:
-	python3 -m flake8 kutana/ --count --select=E9,F63,F7,F82 --show-source --statistics
-	python3 -m flake8 kutana/ --count --max-complexity=10 --max-line-length=127 --statistics
+	python3 -m flake8 --count --select=E9,F63,F7,F82 --show-source --statistics sanic_restful_resources/, examples/
+	python3 -m flake8 --count --max-complexity=10 --max-line-length=127 --statistics sanic_restful_resources/, examples/
