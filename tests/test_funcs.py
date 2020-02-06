@@ -5,8 +5,12 @@ from sanic_restful_resources import collect_args
 ARGS_KEY = (False, False, 'utf-8', 'replace')
 
 
+def make_request():
+    return sanic.request.Request(b'https://ya.ru/', {}, 0, '', '', None)
+
+
 def test_collect_args():
-    request = sanic.request.Request(b'', {}, 0, '', '', None)
+    request = make_request()
 
     request.parsed_json = {'key1': 'val'}
     request.parsed_args = {ARGS_KEY: {'key2': ['val']}}
@@ -24,7 +28,7 @@ def test_collect_args():
 
 
 def test_collect_args_with_list():
-    request = sanic.request.Request(b'', {}, 0, '', '', None)
+    request = make_request()
 
     request.parsed_args = {ARGS_KEY: {'key[]': ['val1', 'val2']}}
 
@@ -34,7 +38,7 @@ def test_collect_args_with_list():
 
 
 def test_collect_args_safety_net():
-    request = sanic.request.Request(b'', {}, 0, '', '', None)
+    request = make_request()
 
     request.parsed_args = {ARGS_KEY: {'key': 'val'}}
 
