@@ -43,7 +43,7 @@ class Users:
         return '', 204
 ```
 
-More examples in the [appropriate folder](examples).
+More examples in [this folder](examples).
 
 ## Guide
 

@@ -129,3 +129,5 @@ dmypy.json
 
 # ide cache
 .idea/
+
+.DS_Store

@@ -12,6 +12,7 @@ users = [{'name': 'Michael', 'age': 20}, {'name': 'Ivan', 'age': 30}]
 
 class UserPostSchema(Model):
     name = StringType(required=True)
+    age = IntType(required=True)
 
 
 class UserGetSchema(Model):
@@ -46,7 +47,7 @@ class Users:
 
     @validate(user_data=UserPostSchema)
     async def post(self, request, user_data):
-        users.append({'name': user_data.name})
+        users.append({'name': user_data.name, 'age': user_data.age})
         return '', 204
 
 
