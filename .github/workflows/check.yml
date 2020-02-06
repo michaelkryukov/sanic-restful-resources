@@ -35,6 +35,9 @@ jobs:
       run: make test
     - name: Upload results to coveralls.io
       if: matrix.python-version == 3.7
-      run: coveralls
+      run: |
+        if [ "$COVERALLS_REPO_TOKEN" != "" ]; then
+          coveralls
+        fi
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
