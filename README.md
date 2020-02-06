@@ -96,7 +96,3 @@ More examples in [this folder](examples).
 
 - `collect_args(request)` - method for getting data from all possible
   sources of data in the request.
-
-## Licence
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmichaelkrukov%2Fsanic-restful-resources?ref=badge_large)
