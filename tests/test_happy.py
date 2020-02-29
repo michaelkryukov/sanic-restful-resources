@@ -28,6 +28,9 @@ class User:
 
         return error('User not found', status=404)
 
+    async def patch(self, request, name):
+        return 1 / 0
+
     async def delete(self, request, name):
         for index, data in enumerate(request.app.config.store):
             if data['name'] == name:
@@ -86,3 +89,7 @@ def test_happy_path():
 
     req, res = app.test_client.get('/api/users/Yan')
     assert res.json == {'description': 'User not found'}
+
+    req, res = app.test_client.patch('/api/users/Yan')
+    assert res.status == 500
+    assert res.json == {'description': 'Internal Server Error'}

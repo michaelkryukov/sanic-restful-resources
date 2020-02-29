@@ -1,4 +1,4 @@
-import traceback
+import logging
 import warnings
 from functools import wraps
 from sanic.blueprints import Blueprint
@@ -15,20 +15,38 @@ class Api:
     stores bluprint, that actually responsible for routing and stuff.
     """
 
-    def __init__(self, name='API', url_prefix=''):
+    def __init__(self, name='API', url_prefix='', logger=None):
         if url_prefix.endswith('/'):
             warnings.warn('You used "url_prefix" with trailing slash')
 
+        self.name = name
         self.blueprint = Blueprint(name, url_prefix=url_prefix)
+
+        if logger is None:
+            self.logger = self._make_logger()
+
+    def _make_logger(self):
+        stream = logging.StreamHandler()
+        stream.setLevel(logging.INFO)
+        stream.setFormatter(logging.Formatter('%(asctime)s [ %(levelname)s ] %(message)s'))
+
+        logger = logging.getLogger(self.name)
+        logger.setLevel(logging.INFO)
+        logger.addHandler(stream)
+
+        return logger
 
     def init_app(self, app):
         app.blueprint(self.blueprint)
 
-    def add_resource(self, res, new_uri=None, *args, **kwargs):
+    def add_resource(self, res, new_uri=None, inject_logger=True, *args, **kwargs):
         if new_uri:
             uri = new_uri
         else:
             uri = res.uri
+
+        if inject_logger:
+            res.logger = self.logger
 
         self.blueprint.add_route(res.as_view(), uri, *args, **kwargs)
 
@@ -47,6 +65,12 @@ def _api_err_response(description, details=None, status=500, **kwargs):
         response['details'] = details
 
     return json(response, status=status, **kwargs)
+
+
+def get_logger(args, default=None):
+    if args:
+        return getattr(args[0], 'logger', default)
+    return default
 
 
 def exceptions_middleware(method):
@@ -72,7 +96,7 @@ def exceptions_middleware(method):
                 'Invalid Header Provided', status=401
             )
         except Exception:
-            traceback.print_exc()
+            get_logger(args, logging).exception('Unhandled exception')
             return _api_err_response('Internal Server Error')
 
     return method_with_try
