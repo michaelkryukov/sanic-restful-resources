@@ -122,8 +122,7 @@ def serializer_middleware(method):
 
         if isinstance(response, (list, dict, str)):
             return _api_ok_response(response, **response_kwargs)
-        else:
-            return response
+        return response
 
     return method_with_serialization
 
