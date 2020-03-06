@@ -1,8 +1,6 @@
 import json
 import pytest
 import sanic
-from jwt.exceptions import InvalidTokenError
-from sanic_jwt_extended.exceptions import InvalidHeaderError
 from sanic_restful_resources import (
     serializer_middleware, exceptions_middleware, error
 )
@@ -22,27 +20,7 @@ def test_error_with_details():
     }
 
 
-async def test_supported_exceptions():
-    @exceptions_middleware
-    async def f1():
-        raise InvalidHeaderError
-
-    response = await f1()
-    assert response.status == 401
-    assert _get_description(response.body) == 'Invalid Header Provided'
-
-    # ---
-
-    @exceptions_middleware
-    async def f2():
-        raise InvalidTokenError
-
-    response = await f2()
-    assert response.status == 401
-    assert _get_description(response.body) == 'Invalid JWT Token Provided'
-
-
-async def test_unsupported_exceptions():
+async def test_exceptions():
     @exceptions_middleware
     async def f():
         raise Exception

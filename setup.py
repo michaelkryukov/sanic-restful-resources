@@ -9,7 +9,7 @@ import sys
 import setuptools
 
 
-VERSION = '0.1.2'
+VERSION = '0.2.0'
 
 
 with open('README.md', 'r') as fh:
@@ -30,8 +30,6 @@ setuptools.setup(
     install_requires=[
         'sanic>=19.12.2',
         'schematics>=2.1.0',
-        'PyJWT>=1.7.1',
-        'sanic-jwt-extended==1.0.dev5',
     ],
     python_requires='>=3.5',
     classifiers=[

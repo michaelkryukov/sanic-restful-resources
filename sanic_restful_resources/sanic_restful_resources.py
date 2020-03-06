@@ -4,8 +4,6 @@ from functools import wraps
 from sanic.blueprints import Blueprint
 from sanic.response import json
 from sanic.views import HTTPMethodView
-from jwt.exceptions import InvalidTokenError
-from sanic_jwt_extended.exceptions import InvalidHeaderError
 from schematics.exceptions import DataError
 
 
@@ -76,29 +74,15 @@ def get_logger(args, default=None):
 def exceptions_middleware(method):
     """
     Middleware used to catch exceptions and sending users correct response
-    with some information. This middleware also used to catch special
-    exceptions to return correct data (for example, DataError from schematics)
+    with some information.
     """
 
     async def method_with_try(*args, **kwargs):
         try:
             return await method(*args, **kwargs)
-        except DataError as e:
-            return _api_err_response(
-                'Bad Request', e.to_primitive(), status=400
-            )
-        except InvalidTokenError:
-            return _api_err_response(
-                'Invalid JWT Token Provided', status=401
-            )
-        except InvalidHeaderError:
-            return _api_err_response(
-                'Invalid Header Provided', status=401
-            )
         except Exception:
             get_logger(args, logging).exception('Unhandled exception')
             return _api_err_response('Internal Server Error')
-
     return method_with_try
 
 
@@ -181,7 +165,12 @@ def validate(**models):
 
             for output, model in models.items():
                 instance = model(collected_args, strict=False)
-                instance.validate()
+                try:
+                    instance.validate()
+                except DataError as e:
+                    return _api_err_response(
+                        'Bad Request', e.to_primitive(), status=400
+                    )
                 kwargs[output] = instance
 
             return await method(self, request, *args, **kwargs)
